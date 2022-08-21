@@ -31,7 +31,7 @@ void manchester_tx_set_callback(uint8_t b_id, void (*fp)(void))
 	s_man_tx_obj[b_id].fp = fp;
 }
 
-void manchester_tx_start_it(uint8_t b_id, uint16_t *aw_data, uint8_t size)
+void manchester_tx_start_it(uint8_t b_id, const uint16_t *aw_data, uint8_t size)
 {
 	s_man_tx_obj[b_id].b_state = MAN_TX_BUSY;
 	s_man_tx_obj[b_id].aw_tx_buff = aw_data;
