@@ -19,8 +19,8 @@ typedef struct
 	uint32_t dw_since;
 } ton_t;
 
-soft_timer_t s_timer_obj[SOFT_TIMER_OBJ_SIZE];
-ton_t s_ton_obj[TON_OBJ_SIZE];
+soft_timer_t s_timer_obj[TIMER_ID_END];
+ton_t s_ton_obj[TON_ID_END];
 
 /**
  * \fn void timer_check(uint8_t b_id, uint32_t dw_now)
@@ -121,26 +121,3 @@ bool TON(uint8_t b_id, bool o_in, uint32_t dw_now, uint32_t dw_preset_time)
 	return ret_val;
 }
 
-bool TON_16U(uint8_t b_id, bool o_in, uint32_t dw_now, uint32_t dw_preset_time)
-{
-	bool ret_val = false;
-
-	if(o_in)
-	{
-		if(!s_ton_obj[b_id].o_aux)
- 		{
-			s_ton_obj[b_id].dw_since = dw_now + dw_preset_time;
-			s_ton_obj[b_id].o_aux = true;
- 		}
-		else if(TIME_OVER_U16((uint16_t)s_ton_obj[b_id].dw_since, (uint16_t)dw_now))
-		{
-			ret_val = true;
-		}
-	}
-	else
-	{
-		s_ton_obj[b_id].o_aux = false;
-	}
-
-	return ret_val;
-}
