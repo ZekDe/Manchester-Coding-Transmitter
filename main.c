@@ -125,9 +125,9 @@ int main(void)
   while (1)
   {
 //	  if(nrz_done)
-	  if(TON(0, tx_done, HAL_GetTick(), 1000))
+	  if(TON(TON_ID_0, tx_done, HAL_GetTick(), 1000))
 	  {
-		  TON(0, 0, 0, 0);
+		  TON(TON_ID_0, 0, 0, 0);
 		  tx_done = false;
 
 		  ++b_data;
