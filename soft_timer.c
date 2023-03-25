@@ -24,11 +24,11 @@ ton_t s_ton_obj[TON_ID_END];
 
 /**
  * \fn void timer_check(uint8_t b_id, uint32_t dw_now)
- * \brief Start a periodic timer with a specified duration .
+ * \brief 
  *
- * \param t - variables are stored which function needs
- * \param now - system tick continuously running
- * 
+ * \param b_id
+ * \param dw_now - system-tick continuously running
+ * @retval none
  */
 void timer_check(uint8_t b_id, uint32_t dw_now)
 {
@@ -54,10 +54,10 @@ void timer_check(uint8_t b_id, uint32_t dw_now)
 }
 
 /**
- * \fn void timerStart(timeout_t*, uint32_t)
+ * \fn void timer_start(uint8_t b_id)
  * \brief
- * \param s
- * \param interval
+ * \param b_id
+ * @retval none
  */
 void timer_start(uint8_t b_id)
 {
@@ -65,9 +65,10 @@ void timer_start(uint8_t b_id)
 }
 
 /**
- * \fn void timerStop(timeout_t*)
+ * \fn void timer_stop(uint8_t b_id)
  * \brief
- * \param s
+ * \param b_id
+ * @retval none
  */
 void timer_stop(uint8_t b_id)
 {
@@ -75,11 +76,11 @@ void timer_stop(uint8_t b_id)
 }
 
 /**
-* @brief void timer_set(uint8_t b_id, uint32_t dw_interval, void(*fp)(void))
+* \fn void timer_set(uint8_t b_id, uint32_t dw_interval, void(*fp)(void))
+* @brief 
 * @param b_id
 * @param uint32_t dw_interval
 * @param void(*fp)(void)
-* 
 * @retval none
 **/
 void timer_set(uint8_t b_id, uint32_t dw_interval, void(*fp)(void))
@@ -93,7 +94,7 @@ void timer_set(uint8_t b_id, uint32_t dw_interval, void(*fp)(void))
  * \brief Start a timer with a specified duration as on-delay.
  * \param b_id active TON obj selection
  * \param o_in - timer is executed when the "in" state changes from 0 to 1
- * \param dw_now - system tick continuously running
+ * \param dw_now - system-tick continuously running
  * \param dw_preset_time - timer is started for the time stored in
  * \return if time is over , return value is 1
  */
